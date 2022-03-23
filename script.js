@@ -1,7 +1,9 @@
 //passwordgenerator
 
 function generatePassword() {
-    var length = 8,
+    var input = document.getElementById("length");
+    console.log(input.value);
+    var length =  input.value,
         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&*+‑/",
         retVal = "";
     for (var i = 0, n = charset.length; i < length; ++i) {
@@ -12,5 +14,3 @@ function generatePassword() {
 
     return retVal;
 }
-
-console.log(generatePassword())
