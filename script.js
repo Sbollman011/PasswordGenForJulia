@@ -12,7 +12,9 @@ function generatePassword() {
         retVal = "";
     for (var i = 0, n = charset.length; i < length; ++i) {
         let val = charset.charAt(Math.floor(Math.random() * n));
+        console.log(uppercase);
         if((!uppercase && isUpper(val)) || (!symbols && isSymbol(val)) || (!numbers && isNumber(val))){
+            console.log(8 === "8".toUpperCase())
             i--;
         }
         else{
@@ -34,7 +36,14 @@ function isNumber(i) {
 }
 
 function isUpper(str){
-    return str == str.toUpperCase();
+    if (typeof str != 'string') {
+        return false;
+    }
+    if(str.toLowerCase() === str.toUpperCase()){
+        return false;
+    }
+    
+    return str === str.toUpperCase();
 }
 
 /*No need for the console print... this was also automatically calling the function everytime the page is opened.
